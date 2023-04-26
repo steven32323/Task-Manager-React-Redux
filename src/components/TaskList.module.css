@@ -1,0 +1,16 @@
+.itemList {
+  display: flex;
+  justify-content: center;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5vh;
+}
+li:hover {
+  background-color: #f3f4f6;
+}
+.checkbox {
+  cursor: pointer;
+}

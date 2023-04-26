@@ -1,0 +1,7 @@
+form {
+  display: flex;
+  justify-content: center;
+}
+input {
+  border-radius: 10px;
+}

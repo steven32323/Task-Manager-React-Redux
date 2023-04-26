@@ -41,14 +41,30 @@ const taskSlice = createSlice({
         state.splice(index, 1);
       }
     },
+    toggleCheckbox(state, action) {
+      const index = state.findIndex((task) => task.id === action.payload);
+      if (index !== -1) state[index].completed = !state[index].completed;
+    },
   },
 });
 
+const initialFilterState = "all";
+
+const filterSlice = createSlice({
+  name: "filter",
+  initialState: initialFilterState,
+  reducers: {
+    setFilter(state, action) {
+      return action.payload;
+    },
+  },
+});
 const store = configureStore({
-  reducer: { task: taskSlice.reducer },
+  reducer: { task: taskSlice.reducer, filter: filterSlice.reducer },
 });
 
 export const taskActions = taskSlice.actions;
+export const filterActions = filterSlice.actions;
 export default store;
 // const initialCounterState = { counter: 0, showCounter: true };
 
